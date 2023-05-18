@@ -4,7 +4,7 @@ from src.logica.OperacionesEnteras import OperacionesEnteras
 class PruebaOperacionesEnteras(unittest.TestCase):
 
     def setUp(self):
-        self.operacion = OperacionesEnteras()
+        self.operacion = OperacionesEnteras([])
 
 
 
@@ -19,6 +19,20 @@ class PruebaOperacionesEnteras(unittest.TestCase):
 
         # Do
         resultadoActual = self.operacion.MCD(numero1, numero2)
+
+        # Assert
+        self.assertEqual(resultadoEsperado, resultadoActual)
+
+    def test_MCD_tresNumerosPositivos_retornaMCD(self):
+        # Arrange
+        numero1 = 24679
+        numero2 = 20387
+        numero3 = 16169
+        resultadoEsperado = 37
+        operacion = OperacionesEnteras([numero1, numero2, numero3])
+
+        # Do
+        resultadoActual = operacion.calcularMCD()
 
         # Assert
         self.assertEqual(resultadoEsperado, resultadoActual)
